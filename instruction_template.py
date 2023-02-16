@@ -42,3 +42,26 @@ def get_random_store():
 
 def get_random_fence():
     return random.choice(fence_instructions)
+
+
+def get_all_events(event):
+    if event == ST:
+        return store_instructions
+    elif event == LD:
+        return load_instructions
+    elif event == FENCE:
+        return fence_instructions
+    else:
+        raise Exception(f"Invalid Event: {event}")
+
+
+def get_same_cta():
+    return [(0, 0), (0, 0)]
+
+
+def get_diff_cta_same_gpu():
+    return [(0, 0), (1, 0)]
+
+
+def get_diff_gpu():
+    return [(0, 0), (0, 1)]
